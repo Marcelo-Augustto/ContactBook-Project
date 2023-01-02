@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}{{contact.name}} |{% endblock  %} 
+{% block content %}
+        <h1 class="mt-5">{{ contact.name }} {{ contact.lastname }}</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                {% if contact.picture %}
+                    <picture>
+                        <source srcset="{{ contact.picture.url }}" type="image/svg+xml">
+                        <img src="{{ contact.picture.url }}" class="img-fluid img-thumbnail" style="max-width: 250px; height: auto;" alt="...">
+                    </picture>
+                {% endif %}
+                </div>
+                <div class="col-xs-6 ml-3">
+                    <dl>
+                        <dt>ID</dt>
+                        <dd>{{ contact.id }}</dd>
+                
+                        <dt>Phone Number</dt>
+                        <dd>{{ contact.phone_number }}</dd>
+                
+                        <dt>E-mail</dt>
+                        <dd>{{ contact.email }}</dd>
+                
+                        <dt>Creation Date</dt>
+                        <dd>{{ contact.creation_date }}</dd>
+                
+                        <dt>Category</dt>
+                        <dd>{{ contact.category }}</dd>
+                    </dl>
+            
+                </div>
+            </div>
+        </div>
+        <div class="mt-3 ml-3">
+            <dl>
+                <dt>Description</dt>
+                <dd>
+                    {{ contact.description }}
+                </dd>
+            </dl>
+        </div>
+        
+{% endblock  %}
